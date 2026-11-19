@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>TikTok login</title><style>body{font:17px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;max-width:760px;margin:0 auto;padding:32px 16px;background:#0f0f10;color:#eee}a{color:#7cc4ff}h1{font-size:28px}h2{font-size:20px;margin-top:28px}code{background:#222;padding:2px 6px;border-radius:4px}.box{background:#1b1b1d;border-radius:10px;padding:16px;word-break:break-all}</style></head><body>
+<h1>Finishing TikTok login...</h1>
+<p id="msg">Handing the login back to the Cliqo Uploader window on this computer.</p>
+<div id="manual" style="display:none">
+<p>If nothing happens: copy the whole link below, paste it into the black Cliqo login window and press Enter.</p>
+<div class="box" id="link"></div>
+</div>
+<script>
+(function () {
+  var q = window.location.search;
+  if (!q) { document.getElementById("msg").textContent = "This page is only used during the TikTok login of Cliqo Uploader."; return; }
+  document.getElementById("link").textContent = window.location.href;
+  // hand the one-time code to the login window running on this same computer (127.0.0.1 = this PC only)
+  setTimeout(function () { document.getElementById("manual").style.display = "block"; }, 2500);
+  window.location.assign("http://127.0.0.1:53682/tiktok/callback" + q);
+})();
+</script>
+</body></html>
